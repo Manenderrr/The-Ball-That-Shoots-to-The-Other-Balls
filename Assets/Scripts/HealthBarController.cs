@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HealthBarController : MonoBehaviour
 {
@@ -16,7 +17,7 @@ public class HealthBarController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<RectTransform>().localScale = new Vector3(Player.GetComponent<HealthController>().Health / Player.GetComponent<HealthController>().MaxHealth, 1, 0);
+        GetComponent<Image>().fillAmount = Player.GetComponent<HealthController>().Health / Player.GetComponent<HealthController>().MaxHealth;
 
         //GetComponent<RectTransform>().position = new Vector2(Placeholder.GetComponent<RectTransform>().position.x - Placeholder.GetComponent<RectTransform>().localScale.x + GetComponent<RectTransform>().localScale.x, Placeholder.GetComponent<RectTransform>().position.y);
     }

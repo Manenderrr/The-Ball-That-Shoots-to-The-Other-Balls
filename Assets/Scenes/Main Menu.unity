@@ -346,7 +346,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u041E\u0433\u0440\u044B\u0437\u043E\u0447\u0435\u043A vInDev\n\u0422\u0435\u043F\u0435\u0440\u044C
-    \u0441 \u0432\u0440\u0430\u0433\u043E\u043C!\n"
+    \u0441 \u0445\u0435\u043B\u0444\u0431\u0430\u0440\u043E\u043C!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23c2219b31ecba64fb6d88578bd4fc51, type: 2}
   m_sharedMaterial: {fileID: -3746474522281820444, guid: 23c2219b31ecba64fb6d88578bd4fc51,
@@ -375,8 +375,8 @@ MonoBehaviour:
   m_outlineColor:
     serializedVersion: 2
     rgba: 4278190080
-  m_fontSize: 36
-  m_fontSizeBase: 36
+  m_fontSize: 35
+  m_fontSizeBase: 35
   m_fontWeight: 400
   m_enableAutoSizing: 0
   m_fontSizeMin: 18
@@ -416,7 +416,7 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 307135895}
-    characterCount: 34
+    characterCount: 37
     spriteCount: 0
     spaceCount: 5
     wordCount: 5
