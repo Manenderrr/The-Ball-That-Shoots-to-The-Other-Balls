@@ -235,7 +235,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 307135896}
   - component: {fileID: 307135895}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: Header
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -346,7 +346,8 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "\u041E\u0433\u0440\u044B\u0437\u043E\u0447\u0435\u043A vInDev\n\u0422\u0435\u043F\u0435\u0440\u044C
-    \u0441 \u0445\u0435\u043B\u0444\u0431\u0430\u0440\u043E\u043C!\n"
+    \u0441 \u0445\u0435\u043B\u0444\u0431\u0430\u0440\u043E\u043C \u0434\u043B\u044F
+    \u0432\u0440\u0430\u0433\u043E\u0432!\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 23c2219b31ecba64fb6d88578bd4fc51, type: 2}
   m_sharedMaterial: {fileID: -3746474522281820444, guid: 23c2219b31ecba64fb6d88578bd4fc51,
@@ -413,13 +414,13 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: -57.540184, y: 0, z: -60.147892, w: 0}
   m_textInfo:
     textComponent: {fileID: 307135895}
-    characterCount: 37
+    characterCount: 48
     spriteCount: 0
-    spaceCount: 5
-    wordCount: 5
+    spaceCount: 7
+    wordCount: 7
     linkCount: 0
     lineCount: 2
     pageCount: 1
@@ -701,6 +702,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_text
       value: "\u041D\u0430\u0441\u0442\u0440\u043E\u0439\u043A\u0438"
+      objectReference: {fileID: 0}
+    - target: {fileID: 6141337550571884906, guid: f877c05e7e2068540ad868af855282e7,
+        type: 3}
+      propertyPath: m_textAlignment
+      value: 514
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: f877c05e7e2068540ad868af855282e7, type: 3}
