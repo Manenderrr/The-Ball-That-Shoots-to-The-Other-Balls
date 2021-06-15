@@ -20,10 +20,11 @@ public class CharacterController : MonoBehaviour
     {
         Direction = Direction.normalized;
 
-        transform.Translate(Direction * MoveSpeed * Time.deltaTime);
+        transform.Translate(MoveSpeed * Time.deltaTime * Direction);
 
         GetComponent<Rigidbody2D>().velocity = new Vector2(0, 0);
     }
+
 
     // Start is called before the first frame update
     void Start()

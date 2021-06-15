@@ -4,9 +4,6 @@ using UnityEngine;
 
 public class AIController : MonoBehaviour
 {
-    [Header("AI")]
-    public string Fraction;
-
     [Header("Health Bar")]
     public bool HaveHealthBar;
     public GameObject Canvas;
@@ -16,8 +13,7 @@ public class AIController : MonoBehaviour
 
     private GameObject HealthBarPlaceholder, HealthBarIndicator;
 
-    // Start is called before the first frame update
-    void Start()
+    void CreateHealthBar()
     {
         HealthBarPlaceholder = Instantiate(HealthBarPlaceholderPrefab, Canvas.transform);
         HealthBarIndicator = Instantiate(HealthBarIndicatorPrefab, Canvas.transform);
@@ -29,10 +25,21 @@ public class AIController : MonoBehaviour
         GetComponent<HealthController>().HealthBarIndicator = HealthBarIndicator;
     }
 
-    // Update is called once per frame
-    void Update()
+    void UpdareHealthBar()
     {
         HealthBarPlaceholder.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y + GetComponent<CircleCollider2D>().radius + HealthBarHeight));
         HealthBarIndicator.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y + GetComponent<CircleCollider2D>().radius + HealthBarHeight));
+    }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        CreateHealthBar();
+    }
+
+    // Update is called once per frame
+    void Update()
+    {
+        UpdareHealthBar();
     }
 }

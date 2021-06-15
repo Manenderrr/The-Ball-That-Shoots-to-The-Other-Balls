@@ -11,7 +11,6 @@ public class BulletController : MonoBehaviour
         if (collision.gameObject.GetComponent<HealthController>() != null)
         {
             collision.gameObject.GetComponent<HealthController>().Health -= Mathf.Abs(GetComponent<Rigidbody2D>().mass + (GetComponent<Rigidbody2D>().velocity.x + GetComponent<Rigidbody2D>().velocity.y) + (collision.gameObject.GetComponent<Rigidbody2D>().velocity.x + collision.gameObject.GetComponent<Rigidbody2D>().velocity.y));
-            Destroy(this.gameObject);
             print("Health of " + collision.gameObject + ": " + collision.gameObject.GetComponent<HealthController>().Health);
 
             if (collision.gameObject.GetComponent<HealthController>().Health <= 0 && Owner.GetComponent<ScoreController>() != null)
@@ -19,5 +18,7 @@ public class BulletController : MonoBehaviour
                 Owner.GetComponent<ScoreController>().Score += collision.gameObject.GetComponent<ScoreController>().Reward;
             }
         }
+
+        Destroy(this.gameObject);
     }
 }
