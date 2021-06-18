@@ -14,6 +14,7 @@ public class CharacterController : MonoBehaviour
     public KeyCode RightKey = KeyCode.D;
     public KeyCode DownKey = KeyCode.S;
     public KeyCode UpKey = KeyCode.W;
+    public GameObject MainCamera;
 
 
     public void Move(Vector2 Direction)
@@ -41,8 +42,8 @@ public class CharacterController : MonoBehaviour
             if (Input.GetKey(DownKey)) Move(-transform.up);
             if (Input.GetKey(LeftKey)) Move(-transform.right);
             if (Input.GetKey(RightKey)) Move(transform.right);
-        }
 
-        if (Input.GetKeyDown(KeyCode.Escape)) Application.Quit();
+            if (Input.GetKeyDown(KeyCode.Escape)) MainCamera.GetComponent<MainController>().ReturnToMainMenu();
+        }
     }
 }

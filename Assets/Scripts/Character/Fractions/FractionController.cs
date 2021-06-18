@@ -15,6 +15,7 @@ public class FractionController : MonoBehaviour
     public GameObject SouthBorder;
     public GameObject WestBorder;
     public GameObject EastBorder;
+    public GameObject MainCamera;
 
     private void Awake()
     {
@@ -31,10 +32,17 @@ public class FractionController : MonoBehaviour
 
     public void Respawn()
     {
-        GameObject Obj = Instantiate(ThisPrefab);
-        if (Obj.GetComponent<HealthController>() != null) Obj.GetComponent<HealthController>().Health = Obj.GetComponent<HealthController>().MaxHealth;
-        Obj.transform.position = new Vector2(Random.Range(WestBorder.transform.position.x, EastBorder.transform.position.x), Random.Range(SouthBorder.transform.position.y, NorthBorder.transform.position.y));
-        GetComponent<HealthController>().AfterSpawn();
+        if (CharacterFraction.IsRespawning)
+        {
+            GameObject Obj = Instantiate(ThisPrefab);
+            if (Obj.GetComponent<HealthController>() != null) Obj.GetComponent<HealthController>().Health = Obj.GetComponent<HealthController>().MaxHealth;
+            Obj.transform.position = new Vector2(Random.Range(WestBorder.transform.position.x, EastBorder.transform.position.x), Random.Range(SouthBorder.transform.position.y, NorthBorder.transform.position.y));
+            GetComponent<HealthController>().AfterSpawn();
+        }
+        else if (CharacterFraction == Fraction.Player)
+        {
+            MainCamera.GetComponent<MainController>().ReturnToMainMenu();
+        }
     }
 
     // Start is called before the first frame update

@@ -16,6 +16,11 @@ public class MainController : MonoBehaviour
         Application.Quit();
     }
 
+    public void ReturnToMainMenu()
+    {
+        LoadScene(0);
+    }
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +31,6 @@ public class MainController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (SceneManager.GetActiveScene().buildIndex == 0) Cursor.visible = true;
     }
 }

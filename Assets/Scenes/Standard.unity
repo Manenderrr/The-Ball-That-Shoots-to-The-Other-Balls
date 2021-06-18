@@ -324,6 +324,11 @@ PrefabInstance:
       objectReference: {fileID: 5121855350068229583}
     - target: {fileID: 253114380195140889, guid: a2d05701d1ec05d4195693bfb900d959,
         type: 3}
+      propertyPath: MainCamera
+      value: 
+      objectReference: {fileID: 1998749039}
+    - target: {fileID: 253114380195140889, guid: a2d05701d1ec05d4195693bfb900d959,
+        type: 3}
       propertyPath: WestBorder
       value: 
       objectReference: {fileID: 5121855349157352234}
@@ -362,6 +367,11 @@ PrefabInstance:
       propertyPath: Aim
       value: 
       objectReference: {fileID: 1876800643}
+    - target: {fileID: 3018952510638828868, guid: a2d05701d1ec05d4195693bfb900d959,
+        type: 3}
+      propertyPath: MainCamera
+      value: 
+      objectReference: {fileID: 1998749039}
     - target: {fileID: 3018952510638828870, guid: a2d05701d1ec05d4195693bfb900d959,
         type: 3}
       propertyPath: m_RootOrder
