@@ -25,7 +25,7 @@ public class FractionController : MonoBehaviour
                 CharacterFraction = Fraction.Player;
                 break;
             case "Enemy":
-                CharacterFraction = Fraction.Player;
+                CharacterFraction = Fraction.Enemy;
                 break;
         }
     }
