@@ -9,9 +9,26 @@ public class AIController : MonoBehaviour
     public GameObject Canvas;
     public GameObject HealthBarPlaceholderPrefab;
     public GameObject HealthBarIndicatorPrefab;
-    float HealthBarHeight = 0.2f;
+    public GameObject PlayerCamera;
+    public float HealthBarHeight = 0.2f;
+
+    [Header("AI")]
+    public bool IsShoots;
+    public GameObject Player;
+    public float ShootCooldown = 5;
 
     private GameObject HealthBarPlaceholder, HealthBarIndicator;
+    private CircleCollider2D CircleCol2D;
+    private Camera CameraComp;
+    private float ShootTimer = 0;
+    private ShootController ShootComp;
+
+    private void Awake()
+    {
+        CircleCol2D = GetComponent<CircleCollider2D>();
+        CameraComp = PlayerCamera.GetComponent<Camera>();
+        ShootComp = GetComponent<ShootController>();
+    }
 
     void CreateHealthBar()
     {
@@ -27,19 +44,30 @@ public class AIController : MonoBehaviour
 
     void UpdareHealthBar()
     {
-        HealthBarPlaceholder.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y + GetComponent<CircleCollider2D>().radius + HealthBarHeight));
-        HealthBarIndicator.transform.position = Camera.main.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y + GetComponent<CircleCollider2D>().radius + HealthBarHeight));
+        HealthBarPlaceholder.transform.position = CameraComp.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y + CircleCol2D.radius + HealthBarHeight));
+        HealthBarIndicator.transform.position = CameraComp.WorldToScreenPoint(new Vector2(transform.position.x, transform.position.y + CircleCol2D.radius + HealthBarHeight));
     }
 
     // Start is called before the first frame update
     void Start()
     {
-        CreateHealthBar();
+        if (HaveHealthBar) CreateHealthBar();
     }
 
     // Update is called once per frame
     void Update()
     {
-        UpdareHealthBar();
+        if (HaveHealthBar) UpdareHealthBar();
+
+        if (IsShoots)
+        {
+            RaycastHit2D ShootCheckRay = Physics2D.Raycast(transform.position + (Player.transform.position - transform.position).normalized * CircleCol2D.radius, (Player.transform.position - transform.position));
+            if ((ShootCheckRay.transform.gameObject == Player) && ShootTimer > ShootCooldown)
+            {
+                ShootComp.Shot((Player.transform.position - transform.position).normalized);
+                ShootTimer = 0;
+            }
+            else ShootTimer += Time.deltaTime * 10;
+        }
     }
 }

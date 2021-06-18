@@ -6,13 +6,11 @@ public class ShootController : MonoBehaviour
 {
     public CharacterController CharacterControllerComponent;
     public GameObject BulletPrefab;
-    public float BulletPower = 1;
+    public float BulletPower = 500;
 
-    public GameObject Shot()
+    public GameObject Shot(Vector3 Direction)
     {
         GameObject Bullet = Instantiate(BulletPrefab);
-
-        Vector3 Direction = CharacterControllerComponent.Aim.transform.position - transform.position;
 
         Bullet.transform.position = transform.position + Direction.normalized * (GetComponent<CircleCollider2D>().radius + Bullet.GetComponent<CircleCollider2D>().radius + 0.2f);
 
@@ -38,14 +36,8 @@ public class ShootController : MonoBehaviour
         {
             if (Input.GetMouseButtonDown(0))
             {
-                Shot();
+                Shot(CharacterControllerComponent.Aim.transform.position - transform.position);
             }
         }
-
-        if (Input.GetKey(KeyCode.LeftShift))
-        {
-            Time.timeScale = 0.3f;
-        }
-        else Time.timeScale = 1;
     }
 }

@@ -10,10 +10,11 @@ GameObject:
   m_Component:
   - component: {fileID: 2626976440789997910}
   - component: {fileID: 2626976440789997909}
-  - component: {fileID: 2626976440789997908}
-  - component: {fileID: 2626976440789997915}
   - component: {fileID: 2626976440789997904}
   - component: {fileID: 2626976440789997911}
+  - component: {fileID: 2626976440789997908}
+  - component: {fileID: 2626976440789997915}
+  - component: {fileID: -8678006534978956097}
   - component: {fileID: 2426101083423456729}
   - component: {fileID: 3503982754892364228}
   - component: {fileID: 3010209120818443953}
@@ -49,10 +50,12 @@ SpriteRenderer:
   m_CastShadows: 0
   m_ReceiveShadows: 0
   m_DynamicOccludee: 1
+  m_StaticShadowCaster: 0
   m_MotionVectors: 1
   m_LightProbeUsage: 1
   m_ReflectionProbeUsage: 1
   m_RayTracingMode: 0
+  m_RayTraceProcedural: 0
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
@@ -88,41 +91,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &2626976440789997908
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2626976440789997914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 56f878b61d1c8f9499adba5882b7934b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  IsAI: 1
-  MoveSpeed: 5
-  Aim: {fileID: 0}
-  LeftKey: 97
-  RightKey: 100
-  DownKey: 115
-  UpKey: 119
---- !u!114 &2626976440789997915
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2626976440789997914}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c644125215a8db44ab892c182d97062, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Health: 10
-  MaxHealth: 10
-  HealthBarPlaceholder: {fileID: 0}
-  HealthBarIndicator: {fileID: 0}
 --- !u!58 &2626976440789997904
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -160,6 +128,59 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &2626976440789997908
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626976440789997914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 56f878b61d1c8f9499adba5882b7934b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  IsAI: 1
+  MoveSpeed: 5
+  Aim: {fileID: 0}
+  LeftKey: 97
+  RightKey: 100
+  DownKey: 115
+  UpKey: 119
+--- !u!114 &2626976440789997915
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626976440789997914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c644125215a8db44ab892c182d97062, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Health: 10
+  MaxHealth: 10
+  HealthBarPlaceholder: {fileID: 8365610262078622466, guid: 952095e59c2251d408ad093e26dfbaf3,
+    type: 3}
+  HealthBarIndicator: {fileID: 3816936725482371601, guid: 23f4fba60e61c0e4394136ee234b0201,
+    type: 3}
+--- !u!114 &-8678006534978956097
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626976440789997914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 48c2f4f706526124089fc64543c1d67e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CharacterControllerComponent: {fileID: 2626976440789997908}
+  BulletPrefab: {fileID: 7377338070120929461, guid: d21da01cd17f863479af2758ca164dee,
+    type: 3}
+  BulletPower: 500
 --- !u!114 &2426101083423456729
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -192,6 +213,11 @@ MonoBehaviour:
     type: 3}
   HealthBarIndicatorPrefab: {fileID: 52704589447541257, guid: 4cb40a95f2198bc47bbbba6d68d34096,
     type: 3}
+  PlayerCamera: {fileID: 0}
+  HealthBarHeight: 0
+  IsShoots: 1
+  Player: {fileID: 0}
+  ShootCooldown: 1
 --- !u!114 &3010209120818443953
 MonoBehaviour:
   m_ObjectHideFlags: 0
