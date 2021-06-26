@@ -16,18 +16,23 @@ public class AIController : MonoBehaviour
     public bool IsShoots;
     public GameObject Player;
     public float ShootCooldown = 5;
+    public float MoveTime = 5;
 
     private GameObject HealthBarPlaceholder, HealthBarIndicator;
     private CircleCollider2D CircleCol2D;
     private Camera CameraComp;
-    private float ShootTimer = 0;
+    private float ShootTimer, MoveTimer = 0;
     private ShootController ShootComp;
+    public CharacterController CharacterComponent;
+    private FractionController FractionComp;
+    private Vector2 Direction;
 
     private void Awake()
     {
         CircleCol2D = GetComponent<CircleCollider2D>();
         CameraComp = PlayerCamera.GetComponent<Camera>();
         ShootComp = GetComponent<ShootController>();
+        FractionComp = GetComponent<FractionController>();
     }
 
     void CreateHealthBar()
@@ -52,6 +57,7 @@ public class AIController : MonoBehaviour
     void Start()
     {
         if (HaveHealthBar) CreateHealthBar();
+        Direction = new Vector2(Random.Range(-1, 1), Random.Range(-1, 1));
     }
 
     // Update is called once per frame
@@ -59,15 +65,34 @@ public class AIController : MonoBehaviour
     {
         if (HaveHealthBar) UpdareHealthBar();
 
-        if (IsShoots)
+        if (CharacterComponent.IsAI)
         {
-            RaycastHit2D ShootCheckRay = Physics2D.Raycast(transform.position + (Player.transform.position - transform.position).normalized * CircleCol2D.radius, (Player.transform.position - transform.position));
-            if ((ShootCheckRay.transform.gameObject == Player) && ShootTimer > ShootCooldown)
+            if (IsShoots)
             {
-                ShootComp.Shot((Player.transform.position - transform.position).normalized);
-                ShootTimer = 0;
+                RaycastHit2D ShootCheckRay = Physics2D.Raycast(transform.position + (Player.transform.position - transform.position).normalized * CircleCol2D.radius, (Player.transform.position - transform.position));
+                if ((ShootCheckRay.transform.gameObject == Player) && ShootTimer >= ShootCooldown)
+                {
+                    ShootComp.Shot((Player.transform.position - transform.position).normalized);
+                    ShootTimer = 0;
+                }
+                else ShootTimer += Time.deltaTime * 10;
             }
-            else ShootTimer += Time.deltaTime * 10;
+            
+            if (MoveTimer >= MoveTime)
+            {
+                do
+                {
+                    Direction = new Vector2(Random.Range(-1.0f, 1.0f), Random.Range(-1.0f, 1.0f));
+                }
+                while (Direction == new Vector2(0, 0));
+                print("Direction: " + Direction);
+                MoveTimer = 0;
+            }
+            else
+            {
+                CharacterComponent.Move(Direction);
+                MoveTimer += Time.deltaTime;
+            }
         }
     }
 }

@@ -110,7 +110,9 @@ MonoBehaviour:
   RightKey: 100
   DownKey: 115
   UpKey: 119
-  MainCamera: {fileID: 0}
+  MenuKey: 27
+  PrefMenuKey: 27
+  MainCamera: {fileID: 2722141377057175822}
 --- !u!114 &3018952510638828871
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -178,7 +180,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 1
+  m_CollisionDetection: 0
   m_Constraints: 4
 --- !u!114 &597804623495723589
 MonoBehaviour:
@@ -309,3 +311,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 992a79e06e644c74fb0c39fb93ecae13, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  CurrentUIMode: 0
+  MainMenuMode: []
+  SettingsMode: []
+  EscapeForMenu: 1
+  EscapeForMenuSaveName: Escape for Menu

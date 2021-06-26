@@ -147,6 +147,8 @@ MonoBehaviour:
   RightKey: 100
   DownKey: 115
   UpKey: 119
+  MenuKey: 0
+  PrefMenuKey: 27
   MainCamera: {fileID: 0}
 --- !u!114 &2626976440789997915
 MonoBehaviour:
@@ -217,8 +219,10 @@ MonoBehaviour:
   PlayerCamera: {fileID: 0}
   HealthBarHeight: 0
   IsShoots: 1
-  Player: {fileID: 3018952510638828859, guid: a2d05701d1ec05d4195693bfb900d959, type: 3}
-  ShootCooldown: 1
+  Player: {fileID: 0}
+  ShootCooldown: 5
+  MoveTime: 1
+  CharacterComponent: {fileID: 2626976440789997908}
 --- !u!114 &3010209120818443953
 MonoBehaviour:
   m_ObjectHideFlags: 0

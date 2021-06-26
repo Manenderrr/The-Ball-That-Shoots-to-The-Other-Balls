@@ -14,10 +14,12 @@ public class CharacterController : MonoBehaviour
     public KeyCode RightKey = KeyCode.D;
     public KeyCode DownKey = KeyCode.S;
     public KeyCode UpKey = KeyCode.W;
-    public GameObject MainCamera;
+    public KeyCode MenuKey = KeyCode.Escape;
+    public KeyCode PrefMenuKey = KeyCode.Escape;
+    public MainController MainCamera;
 
 
-    public void Move(Vector2 Direction)
+    public void Move(Vector2 Direction, float MoveTime = 0)
     {
         Direction = Direction.normalized;
 
@@ -30,7 +32,8 @@ public class CharacterController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        if (MainCamera.LoadSettings()) PrefMenuKey = MenuKey;
+        else PrefMenuKey = KeyCode.None;
     }
 
     // Update is called once per frame
@@ -43,7 +46,7 @@ public class CharacterController : MonoBehaviour
             if (Input.GetKey(LeftKey)) Move(-transform.right);
             if (Input.GetKey(RightKey)) Move(transform.right);
 
-            if (Input.GetKeyDown(KeyCode.Escape)) MainCamera.GetComponent<MainController>().ReturnToMainMenu();
+            if (Input.GetKeyDown(PrefMenuKey)) MainCamera.GetComponent<MainController>().ReturnToMainMenu();
         }
     }
 }
