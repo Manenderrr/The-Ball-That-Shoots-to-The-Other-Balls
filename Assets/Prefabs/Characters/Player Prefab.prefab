@@ -17,6 +17,7 @@ GameObject:
   - component: {fileID: 1327073017533661265}
   - component: {fileID: 597804623495723589}
   - component: {fileID: 253114380195140889}
+  - component: {fileID: 836563574957485310}
   m_Layer: 0
   m_Name: Player Prefab
   m_TagString: Untagged
@@ -208,13 +209,30 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 78bab330e0b845e4e8f1f1ae65412c5b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  CharacterFractionAsString: 
+  CharacterFractionAsString: Player
   ThisPrefab: {fileID: 3018952510638828859}
   NorthBorder: {fileID: 0}
   SouthBorder: {fileID: 0}
   WestBorder: {fileID: 0}
   EastBorder: {fileID: 0}
-  MainCamera: {fileID: 0}
+  MainCamera: {fileID: 3018952510759175416}
+--- !u!114 &836563574957485310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3018952510638828859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5dd53bcffb9e64487b3778a9ce0f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ammo: 5
+  MaxAmmo: 5
+  ReloadTime: 5
+  ReloadTimer: 0
+  IsReloading: 0
 --- !u!1 &3018952510759175416
 GameObject:
   m_ObjectHideFlags: 0

@@ -18,6 +18,7 @@ GameObject:
   - component: {fileID: 2426101083423456729}
   - component: {fileID: 3503982754892364228}
   - component: {fileID: 3010209120818443953}
+  - component: {fileID: 3493676335530302290}
   m_Layer: 0
   m_Name: Enemy Prefab
   m_TagString: Untagged
@@ -150,6 +151,7 @@ MonoBehaviour:
   MenuKey: 0
   PrefMenuKey: 27
   MainCamera: {fileID: 0}
+  ReloadKey: 114
 --- !u!114 &2626976440789997915
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -246,3 +248,20 @@ MonoBehaviour:
   EastBorder: {fileID: 1164010601424888774, guid: e8ad01692491c2947ad9f943f1609853,
     type: 3}
   MainCamera: {fileID: 0}
+--- !u!114 &3493676335530302290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2626976440789997914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0b5dd53bcffb9e64487b3778a9ce0f3a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Ammo: 5
+  MaxAmmo: 5
+  ReloadTime: 1
+  ReloadTimer: 0
+  IsReloading: 0
